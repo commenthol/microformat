@@ -1,0 +1,29 @@
+{
+  "name": "microformat",
+  "version": "1.0.0",
+  "description": "A format utility for node and browser",
+  "keywords": [
+    "format",
+    "util"
+  ],
+  "license": "Unlicense",
+  "author": "Commenthol <commenthol@gmail.com>",
+  "main": "lib",
+  "module": "src",
+  "scripts": {
+    "build": "letool transpile",
+    "cover": "letool coverage",
+    "lint": "letool lint",
+    "setup": "letool setup",
+    "test": "letool mocha"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "stage-2"
+    ]
+  },
+  "devDependencies": {
+    "letool": "latest"
+  }
+}
