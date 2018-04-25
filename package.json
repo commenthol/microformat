@@ -1,29 +1,56 @@
 {
-  "name": "microformat",
-  "version": "1.0.0",
+  "name": "@commenthol/microformat",
+  "version": "1.0.0-0",
   "description": "A format utility for node and browser",
   "keywords": [
     "format",
     "util"
   ],
+  "homepage": "https://github.com/commenthol/microformat",
+  "bugs": {
+    "url": "https://github.com/commenthol/microformat/issues"
+  },
   "license": "Unlicense",
   "author": "Commenthol <commenthol@gmail.com>",
   "main": "lib",
-  "module": "src",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/commenthol/microformat.git"
+  },
   "scripts": {
-    "build": "letool transpile",
-    "cover": "letool coverage",
-    "lint": "letool lint",
-    "setup": "letool setup",
-    "test": "letool mocha"
+    "all": "npm run clean && npm run lint && npm run build && npm test",
+    "build": "babel -d lib src",
+    "clean": "rimraf lib es coverage .nyc_output",
+    "clean:all": "npm run clean && rimraf node_modules",
+    "coverage": "nyc -r text -r html npm test",
+    "lint": "eslint '**/*.js'",
+    "prepublishOnly": "npm run all",
+    "test": "mocha"
   },
-  "babel": {
-    "presets": [
-      "env",
-      "stage-2"
-    ]
-  },
+  "dependencies": {},
   "devDependencies": {
-    "letool": "latest"
-  }
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "mocha": "^5.1.0",
+    "nyc": "^11.6.0",
+    "rimraf": "^2.6.2"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "maintainers": [
+    "commenthol <commenthol@gmail.com>"
+  ]
 }
